@@ -275,7 +275,7 @@ or similar, try deleting cmake's build directory and rebuilding the project
 ---- OUTPUT ----
 ```
 {
-  "symbol": "NQ=F",
+  "symbol": "BTC-USD",
   "timestamp": "2024-03-27T09:45:00-04:00",
   "signal": "buy",
   "strategy": "RSI",
