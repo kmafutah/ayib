@@ -211,3 +211,129 @@ or similar, try deleting cmake's build directory and rebuilding the project
   }
 }
 ```
+
+------------------------------------------------------------------------------------------------------------------
+
+# BTCUSD Technical Analysis
+
+---- INPUT ----
+
+**Timeframes:** (Your specified timeframes)
+
+## Summary
+
+* **Overall:** Neutral
+
+## Oscillators
+
+| Indicator Name                   | Your Timeframes |
+|----------------------------------|-----------------|
+| Relative Strength Index (14)     | 57 (Neutral)    |
+| Stochastic %K (14, 3, 3)         | 69 (Neutral)    |
+| Commodity Channel Index (20)     | 55 (Neutral)    |
+| Average Directional Index (14)   | 30 (Neutral)    |
+| Awesome Oscillator               | 3372 (Neutral)  |
+| Momentum (10)                    | 903 (Sell)      |
+| MACD Level (12, 26)              | 2025 (Sell)     |
+| Stochastic RSI Fast (3, 3, 14, 14)| 40 (Neutral)   |
+| Williams Percent Range (14)      | -35 (Neutral)   |
+| Bull Bear Power                  | 5152 (Neutral)  |
+| Ultimate Oscillator (7, 14, 28)  | 49 (Neutral)    |
+
+## Moving Averages
+
+| Indicator Name                          | Your Timeframes |
+|-----------------------------------------|-----------------|
+| Exponential Moving Average (10)          | 67754 (Buy)     |
+| Simple Moving Average (10)              | 66703 (Buy)     |
+| Exponential Moving Average (20)          | 66610 (Buy)     |
+| Simple Moving Average (20)              | 68200 (Buy)     |
+| Exponential Moving Average (30)          | 64792 (Buy)     |
+| Simple Moving Average (30)              | 66586 (Buy)     |
+| Exponential Moving Average (50)          | 61004 (Buy)     |
+| Simple Moving Average (50)              | 60112 (Buy)     |
+| Exponential Moving Average (100)         | 54056 (Buy)     |
+| Simple Moving Average (100)             | 51529 (Buy)     |
+| Exponential Moving Average (200)         | 46109 (Buy)     |
+| Simple Moving Average (200)             | 42446 (Buy)     |
+| Ichimoku Base Line (9, 26, 52, 26)       | 66554 (Neutral)|
+| Volume Weighted Moving Average (20)      | 68462 (Buy)     |
+| Hull Moving Average (9)                  | 70450 (Sell)    |
+
+## Pivots
+
+| Pivot         | Classic | Fibonacci | Camarilla | Woodie | DM      |
+|---------------|---------|-----------|-----------|--------|---------|
+| S3            | 11391   | 33532     | 55072     | 27950  | —       |
+| S2            | 33532   | 41990     | 57102     | 34904  | —       |
+| S1            | 47347   | 47215     | 59131     | 50091  | 51510   |
+| Pivot (P)     | 55673   | 55673     | 55673     | 57045  | 57755   |
+| R1            | 69488   | 64131     | 63191     | 72232  | 73651   |
+| R2            | 77814   | 69356     | 65220     | 79186  | —       |
+| R3            | 99955   | 77814     | 67250     | 94373  | —       |
+
+---- OUTPUT ----
+```
+{
+  "BreakoutTradingStrategy": {
+    "signal": "buy",  
+    "volume": "calculate_based_on_risk_tolerance", 
+    "stop_loss": "below_breakout_level", 
+    "take_profit": "multiple_of_breakout_level" 
+  },
+  "DiversificationStrategy": {
+    "signal": "allocate_across_sectors", 
+    "volume": "proportional_to_portfolio_size", 
+    "stop_loss": "not_directly_applicable",
+    "take_profit": "based_on_rebalancing_schedule" 
+  },
+  "DollarCostAveragingStrategy": {
+    "signal": "buy", 
+    "volume": "fixed_investment_amount", 
+    "stop_loss": "not_directly_applicable",
+    "take_profit": "long_term_hold" 
+  },
+  "FundamentalAnalysisStrategy": {
+    "signal": "buy_or_sell_based_on_valuation",
+    "volume": "calculate_based_on_risk_tolerance", 
+    "stop_loss": "below_support_or_change_in_fundamentals",  
+    "take_profit": "target_price_based_on_valuation" 
+  },
+  "MomentumInvestingStrategy": { 
+    "signal": "buy",
+    "volume": "calculate_based_on_risk_tolerance",
+    "stop_loss": "trailing_stop_below_recent_lows", 
+    "take_profit": "when_momentum_fades" 
+  },
+  "MovingAverageCrossoverStrategy": {
+    "signal": "buy_on_golden_cross_sell_on_death_cross",
+    "volume": "calculate_based_on_risk_tolerance",
+    "stop_loss": "below_recent_swing_low", 
+    "take_profit": "multiple_of_average_true_range" 
+  },
+  "RSIStrategy": {
+    "signal": "buy_oversold_sell_overbought",
+    "volume": "calculate_based_on_risk_tolerance",
+    "stop_loss": "below_recent_swing_low", 
+    "take_profit": "trailing_profit_as_RSI_moves_favorably"
+  }, 
+  "ScalpingStrategy": { 
+    "signal": "frequent_buy_and_sell_based_on_small_moves",
+    "volume": "dependent_on_liquidity_and_bid_ask_spread",
+    "stop_loss": "tight_stops_to_limit_risk", 
+    "take_profit": "small_profit_targets" 
+  },
+  "TrendFollowingStrategy": { 
+    "signal": "follow_trend_direction",
+    "volume": "calculate_based_on_risk_tolerance",
+    "stop_loss": "trailing_stop_based_on_trend_indicators", 
+    "take_profit": "when_trend_reverses"
+  },
+  "ValueInvestingStrategy": {
+    "signal": "buy_undervalued_stocks",
+    "volume": "calculate_based_on_risk_tolerance", 
+    "stop_loss": "below_support_or_change_in_fundamentals", 
+    "take_profit": "target_price_based_on_intrinsic_value"
+  }
+}
+```
