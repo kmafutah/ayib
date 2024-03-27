@@ -275,65 +275,25 @@ or similar, try deleting cmake's build directory and rebuilding the project
 ---- OUTPUT ----
 ```
 {
-  "BreakoutTradingStrategy": {
-    "signal": "buy",  
-    "volume": "calculate_based_on_risk_tolerance", 
-    "stop_loss": "below_breakout_level", 
-    "take_profit": "multiple_of_breakout_level" 
+  "symbol": "NQ=F",
+  "timestamp": "2024-03-27T09:45:00-04:00",
+  "signal": "buy",
+  "strategy": "RSI",
+  "indicators": {
+    "RSI_20": 59.4898664521678 
   },
-  "DiversificationStrategy": {
-    "signal": "allocate_across_sectors", 
-    "volume": "proportional_to_portfolio_size", 
-    "stop_loss": "not_directly_applicable",
-    "take_profit": "based_on_rebalancing_schedule" 
+  "price_data": {
+    "open": 18480.0,
+    "high": 18480.0,
+    "low": 18470.5,
+    "close": 18473.25,
+    "volume": 2246
   },
-  "DollarCostAveragingStrategy": {
-    "signal": "buy", 
-    "volume": "fixed_investment_amount", 
-    "stop_loss": "not_directly_applicable",
-    "take_profit": "long_term_hold" 
+  "targets": {
+    "entry": 18475.0, // Example entry suggestion
+    "take_profit": 18600.0,
+    "stop_loss": 18400.0
   },
-  "FundamentalAnalysisStrategy": {
-    "signal": "buy_or_sell_based_on_valuation",
-    "volume": "calculate_based_on_risk_tolerance", 
-    "stop_loss": "below_support_or_change_in_fundamentals",  
-    "take_profit": "target_price_based_on_valuation" 
-  },
-  "MomentumInvestingStrategy": { 
-    "signal": "buy",
-    "volume": "calculate_based_on_risk_tolerance",
-    "stop_loss": "trailing_stop_below_recent_lows", 
-    "take_profit": "when_momentum_fades" 
-  },
-  "MovingAverageCrossoverStrategy": {
-    "signal": "buy_on_golden_cross_sell_on_death_cross",
-    "volume": "calculate_based_on_risk_tolerance",
-    "stop_loss": "below_recent_swing_low", 
-    "take_profit": "multiple_of_average_true_range" 
-  },
-  "RSIStrategy": {
-    "signal": "buy_oversold_sell_overbought",
-    "volume": "calculate_based_on_risk_tolerance",
-    "stop_loss": "below_recent_swing_low", 
-    "take_profit": "trailing_profit_as_RSI_moves_favorably"
-  }, 
-  "ScalpingStrategy": { 
-    "signal": "frequent_buy_and_sell_based_on_small_moves",
-    "volume": "dependent_on_liquidity_and_bid_ask_spread",
-    "stop_loss": "tight_stops_to_limit_risk", 
-    "take_profit": "small_profit_targets" 
-  },
-  "TrendFollowingStrategy": { 
-    "signal": "follow_trend_direction",
-    "volume": "calculate_based_on_risk_tolerance",
-    "stop_loss": "trailing_stop_based_on_trend_indicators", 
-    "take_profit": "when_trend_reverses"
-  },
-  "ValueInvestingStrategy": {
-    "signal": "buy_undervalued_stocks",
-    "volume": "calculate_based_on_risk_tolerance", 
-    "stop_loss": "below_support_or_change_in_fundamentals", 
-    "take_profit": "target_price_based_on_intrinsic_value"
-  }
+  "confidence": 0.65 
 }
 ```
