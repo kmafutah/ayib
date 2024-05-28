@@ -1,32 +1,39 @@
-Trading instruments for each of your packages:
+Trading instruments for each packages:
 
 1. **The Savvy Zebra Stockbroker**: 
    - Primary Instrument: `STOCK`
    - Secondary Instruments: `INDICES`, `OPTIONS`
+   - Trading Strategy: `TrendFollowingStrategy`
 
 2. **The Elephant Economist**: 
    - Primary Instrument: `BONDS`
    - Secondary Instruments: `FUNDS`, `FOREX`
+   - Trading Strategy: `DollarCostAveragingStrategy`
 
 3. **The Meerkat Venture Capitalist**: 
    - Primary Instrument: `FUNDS`
    - Secondary Instruments: `STRUCTURED_PRODUCTS`, `ETPS`
+   - Trading Strategy: `DiversificationStrategy`
 
 4. **The Cheetah Day Trader**: 
    - Primary Instrument: `FOREX`
    - Secondary Instruments: `CFDS`, `DERIVATIVES`
+   - Trading Strategy: `ScalpingStrategy`
 
 5. **The Lion Hedge Fund Manager**: 
    - Primary Instrument: `FUNDS`
    - Secondary Instruments: `OPTIONS`, `DERIVATIVES`
+   - Trading Strategy: `ValueInvestingStrategy`
 
 6. **The Rhino Real Estate Mogul**: 
    - Primary Instrument: `REITS`
    - Secondary Instruments: `BONDS`, `STRUCTURED_PRODUCTS`
+   - Trading Strategy: `FundamentalAnalysisStrategy`
 
 7. **The Pangolin Cryptocurrency Enthusiast**: 
    - Primary Instrument: `CRYPTO`
    - Secondary Instruments: `CFDS`, `DERIVATIVES`
+   - Trading Strategy: `RSIStrategy`
 
 
 ## Getting Started
