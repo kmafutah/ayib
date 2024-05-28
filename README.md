@@ -1,6 +1,33 @@
-# CMake vcpkg project example
+Trading instruments for each of your packages:
 
-An example on how to setup a CMake project with vcpkg and its [manifest](https://vcpkg.readthedocs.io/en/latest/specifications/manifests/) (`vcpkg.json`) experimental feature
+1. **The Savvy Zebra Stockbroker**: 
+   - Primary Instrument: `STOCK`
+   - Secondary Instruments: `INDICES`, `OPTIONS`
+
+2. **The Elephant Economist**: 
+   - Primary Instrument: `BONDS`
+   - Secondary Instruments: `FUNDS`, `FOREX`
+
+3. **The Meerkat Venture Capitalist**: 
+   - Primary Instrument: `FUNDS`
+   - Secondary Instruments: `STRUCTURED_PRODUCTS`, `ETPS`
+
+4. **The Cheetah Day Trader**: 
+   - Primary Instrument: `FOREX`
+   - Secondary Instruments: `CFDS`, `DERIVATIVES`
+
+5. **The Lion Hedge Fund Manager**: 
+   - Primary Instrument: `FUNDS`
+   - Secondary Instruments: `OPTIONS`, `DERIVATIVES`
+
+6. **The Rhino Real Estate Mogul**: 
+   - Primary Instrument: `REITS`
+   - Secondary Instruments: `BONDS`, `STRUCTURED_PRODUCTS`
+
+7. **The Pangolin Cryptocurrency Enthusiast**: 
+   - Primary Instrument: `CRYPTO`
+   - Secondary Instruments: `CFDS`, `DERIVATIVES`
+
 
 ## Getting Started
 Clone the repo with the `--recurse-submodules` flag
