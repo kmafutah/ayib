@@ -331,3 +331,5 @@ or similar, try deleting cmake's build directory and rebuilding the project
   "confidence": 0.65 
 }
 ```
+## Visitors Count
+<img height="30px" src = "https://profile-counter.glitch.me/kmafutah/count.svg" alt ="Loading">
