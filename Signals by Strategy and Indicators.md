@@ -1,3 +1,7 @@
+Here’s an outline for the entry, hold, and exit signals for each strategy, based on the indicators assigned previously. These signals aim to capture conditions typical for each strategy.
+
+Signals by Strategy and Indicators
+
 {
   "BreakoutTradingStrategy": {
     "entry_signal": "Price closes above resistance on high volume (SMA and OBV confirm uptrend)",
@@ -50,3 +54,14 @@
     "exit_signal": "Price reaches target valuation or CCI indicates overbought condition"
   }
 }
+
+Explanation of Signals for Key Strategies
+
+	•	BreakoutTradingStrategy:
+	•	Entry upon breaking a resistance level, confirmed by an SMA uptrend and volume increase (OBV). Exits if price falls below the breakout level or Stochastic shows overbought.
+	•	MovingAverageCrossoverStrategy:
+	•	Entry triggered by a golden cross (50-day crosses above 200-day) with ROC confirming strength. Exit at death cross or if the price falls below recent lows.
+	•	TrendFollowingStrategy:
+	•	Entry if price aligns with Ichimoku cloud direction and TSI confirms trend. Holding continues as price stays above the Ichimoku cloud, exiting when the trend reverses or closes below the cloud.
+
+This setup provides actionable signals specific to each strategy’s mechanics, with indicators optimized for confirming trade direction, momentum, or support/resistance. Let me know if you’d like further customization on any signal, especially with variations in timeframes or specific indicator thresholds.
