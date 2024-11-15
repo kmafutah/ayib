@@ -1,7 +1,7 @@
 Here’s an outline for the entry, hold, and exit signals for each strategy, based on the indicators assigned previously. These signals aim to capture conditions typical for each strategy.
 
 Signals by Strategy and Indicators
-
+```
 {
   "BreakoutTradingStrategy": {
     "entry_signal": "Price closes above resistance on high volume (SMA and OBV confirm uptrend)",
@@ -54,7 +54,7 @@ Signals by Strategy and Indicators
     "exit_signal": "Price reaches target valuation or CCI indicates overbought condition"
   }
 }
-
+```
 Explanation of Signals for Key Strategies
 
 	•	BreakoutTradingStrategy:
