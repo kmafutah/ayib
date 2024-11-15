@@ -1,7 +1,7 @@
 Here’s a suggested assignment of indicators for each category across the strategies, considering the typical indicators that align well with the strategy’s principles and requirements.
 
 Mapped Indicators by Strategy
-
+```
 {
   "BreakoutTradingStrategy": {
     "trend_indicator": "SMA",
@@ -84,7 +84,7 @@ Mapped Indicators by Strategy
     "oscillator_indicator": "CCI"
   }
 }
-
+```
 Explanation of Indicator Assignments
 
 	•	Trend Indicators:
