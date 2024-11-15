@@ -1,4 +1,7 @@
-'''
+Here’s a suggested assignment of indicators for each category across the strategies, considering the typical indicators that align well with the strategy’s principles and requirements.
+
+Mapped Indicators by Strategy
+
 {
   "BreakoutTradingStrategy": {
     "trend_indicator": "SMA",
@@ -81,31 +84,26 @@
     "oscillator_indicator": "CCI"
   }
 }
-'''
 
 Explanation of Indicator Assignments
-Trend Indicators:
 
-EMA and SMA are assigned to strategies that benefit from smooth trend insights (e.g., DollarCostAveraging, ValueInvesting).
-Supertrend and Ichimoku suit strategies like MomentumInvesting and TrendFollowing for identifying clearer market directions.
-Momentum Indicators:
+	•	Trend Indicators:
+	•	EMA and SMA are assigned to strategies that benefit from smooth trend insights (e.g., DollarCostAveraging, ValueInvesting).
+	•	Supertrend and Ichimoku suit strategies like MomentumInvesting and TrendFollowing for identifying clearer market directions.
+	•	Momentum Indicators:
+	•	RSI is central for MomentumInvesting and RSIStrategy to gauge strength in price movement.
+	•	ROC and PPO offer useful momentum insights for BreakoutTrading and FundamentalAnalysis respectively.
+	•	Volatility Indicators:
+	•	ATR is used by strategies such as BreakoutTrading and RSIStrategy for stop-loss placement.
+	•	BBANDS and STDEV suit ValueInvesting and Diversification for understanding price range volatility.
+	•	Volume Indicators:
+	•	OBV is aligned with BreakoutTrading and MovingAverageCrossover to assess volume-driven trends.
+	•	CMF and VROC help DollarCostAveraging and MomentumInvesting strategies gauge money flow and volume shifts.
+	•	Support and Resistance Indicators:
+	•	PivotPoints support BreakoutTrading and MovingAverageCrossover as they’re straightforward for entry and exit points.
+	•	FibonacciRetracement and GannLines assist Diversification and TrendFollowing with calculated price levels.
+	•	Oscillator Indicators:
+	•	Stochastic and CCI are helpful for BreakoutTrading and ValueInvesting to assess overbought/oversold levels.
+	•	AwesomeOscillator is aligned with FundamentalAnalysis and TrendFollowing for its trend-confirmation qualities.
 
-RSI is central for MomentumInvesting and RSIStrategy to gauge strength in price movement.
-ROC and PPO offer useful momentum insights for BreakoutTrading and FundamentalAnalysis respectively.
-Volatility Indicators:
-
-ATR is used by strategies such as BreakoutTrading and RSIStrategy for stop-loss placement.
-BBANDS and STDEV suit ValueInvesting and Diversification for understanding price range volatility.
-Volume Indicators:
-
-OBV is aligned with BreakoutTrading and MovingAverageCrossover to assess volume-driven trends.
-CMF and VROC help DollarCostAveraging and MomentumInvesting strategies gauge money flow and volume shifts.
-Support and Resistance Indicators:
-
-PivotPoints support BreakoutTrading and MovingAverageCrossover as they’re straightforward for entry and exit points.
-FibonacciRetracement and GannLines assist Diversification and TrendFollowing with calculated price levels.
-Oscillator Indicators:
-
-Stochastic and CCI are helpful for BreakoutTrading and ValueInvesting to assess overbought/oversold levels.
-AwesomeOscillator is aligned with FundamentalAnalysis and TrendFollowing for its trend-confirmation qualities.
 This categorization considers the core principles of each strategy while balancing the indicators across categories. Let me know if you need further refinement or have specific preferences for indicator adjustments.
