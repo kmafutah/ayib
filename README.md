@@ -243,6 +243,51 @@ or similar, try deleting cmake's build directory and rebuilding the project
     "stop_loss": "below_support_or_change_in_fundamentals", 
     "take_profit": "target_price_based_on_intrinsic_value"
   }
+
+
+  "MeanReversionStrategy": {
+    "signal": "buy_when_price_below_mean_sell_when_above",
+    "volume": "calculate_based_on_risk_tolerance",
+    "stop_loss": "set_at_deviation_threshold",
+    "take_profit": "when_price_reverts_to_mean"
+  },
+  "ArbitrageStrategy": {
+    "signal": "buy_in_lower_priced_market_sell_in_higher_priced_market",
+    "volume": "dependent_on_price_discrepancy_and_liquidity",
+    "stop_loss": "not_directly_applicable",
+    "take_profit": "when_price_convergence_occurs"
+  },
+  "StatisticalArbitrageStrategy": {
+    "signal": "identify_and_trade_on_statistical_price_discrepancies",
+    "volume": "calculate_based_on_risk_tolerance",
+    "stop_loss": "based_on_statistical_thresholds",
+    "take_profit": "upon_price_normalization"
+  },
+  "PairsTradingStrategy": {
+    "signal": "buy_underperforming_asset_sell_outperforming_asset",
+    "volume": "equal_value_investment_in_each_asset",
+    "stop_loss": "if_pair_divergence_exceeds_threshold",
+    "take_profit": "when_pair_converges_to_mean"
+  },
+  "AlgorithmicTradingStrategy": {
+    "signal": "automated_signals_based_on_predefined_algorithms",
+    "volume": "determined_by_algorithm_parameters",
+    "stop_loss": "algorithmically_defined",
+    "take_profit": "algorithmically_defined"
+  },
+  "EventDrivenTradingStrategy": {
+    "signal": "buy_or_sell_based_on_event_analysis",
+    "volume": "calculate_based_on_risk_tolerance",
+    "stop_loss": "if_event_outcome_differs_from_expectation",
+    "take_profit": "when_event_impact_is_realized"
+  },
+  "VolatilityTradingStrategy": {
+    "signal": "trade_based_on_volatility_predictions",
+    "volume": "calculate_based_on_risk_tolerance",
+    "stop_loss": "if_volatility_moves_against_position",
+    "take_profit": "when_volatility_target_is_achieved"
+  }
+
 }
 ```
 
