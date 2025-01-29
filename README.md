@@ -242,9 +242,7 @@ or similar, try deleting cmake's build directory and rebuilding the project
     "volume": "calculate_based_on_risk_tolerance", 
     "stop_loss": "below_support_or_change_in_fundamentals", 
     "take_profit": "target_price_based_on_intrinsic_value"
-  }
-
-
+  },
   "MeanReversionStrategy": {
     "signal": "buy_when_price_below_mean_sell_when_above",
     "volume": "calculate_based_on_risk_tolerance",
