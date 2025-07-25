@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import mplfinance as mpf
 import os
+import json
 from talib import RSI, STOCH, CCI, ADX, MOM, MACD, STOCHRSI, WILLR, PPO, ULTOSC, MINUS_DI,PLUS_DI
 global buy_counter
 global neutral_counter
@@ -102,6 +103,77 @@ def generate_md_file(data, pivot_data, timeframe,symbol):
         # Summary section
         md_file.write("## Summary\n\n")
         md_file.write(f"* **Overall:** Buy Count: {buy_counter}, Neutral Count: {neutral_counter}, Sell Count: {sell_counter}\n\n")
+
+def generate_json_file(data, pivot_data, timeframe, symbol):
+    buy_counter = 0
+    neutral_counter = 0
+    sell_counter = 0
+    json_file_path = f'data/{symbol}_Technical_Analysis_{timeframe}.json'
+    output = {
+        'symbol': symbol,
+        'timeframe': timeframe,
+        'last_date': str(data.index[-1]) if not data.empty else None,
+        'oscillators': {},
+        'moving_averages': {},
+        'pivots': {},
+        'summary': {},
+    }
+    # Oscillators
+    oscillators_data = {
+        "Relative Strength Index (14)": (data['RSI'].iloc[-1], determine_signal('RSI', data, sell_counter, buy_counter, neutral_counter)),
+        "Stochastic %K (14, 3, 3)": (data['%K'].iloc[-1], determine_signal('%K', data, sell_counter, buy_counter, neutral_counter)),
+        "Commodity Channel Index (20)": (data['CCI'].iloc[-1], determine_signal('CCI', data, sell_counter, buy_counter, neutral_counter)),
+        "Average Directional Index (14)": (data['ADX'].iloc[-1], determine_signal('ADX', data, sell_counter, buy_counter, neutral_counter)),
+        "Awesome Oscillator": (data['AO'].iloc[-1], determine_signal('AO', data, sell_counter, buy_counter, neutral_counter)),
+        "Momentum (10)": (data['MOM'].iloc[-1], determine_signal('MOM', data, sell_counter, buy_counter, neutral_counter)),
+        "MACD Level (12, 26)": (data['MACD'].iloc[-1], determine_signal('MACD', data, sell_counter, buy_counter, neutral_counter)),
+        "Stochastic RSI Fast (3, 3, 14, 14)": (data['%K_RSI'].iloc[-1], determine_signal('%K_RSI', data, sell_counter, buy_counter, neutral_counter)),
+        "Williams Percent Range (14)": (data['WILLR'].iloc[-1], determine_signal('WILLR', data, sell_counter, buy_counter, neutral_counter)),
+        "Bull Bear Power": (data['BullBearPower'].iloc[-1], determine_signal('BullBearPower', data, sell_counter, buy_counter, neutral_counter)),
+        "Ultimate Oscillator (7, 14, 28)": (data['UltimateOsc'].iloc[-1], determine_signal('UltimateOsc', data, sell_counter, buy_counter, neutral_counter)),
+    }
+    for indicator, (value, signal) in oscillators_data.items():
+        output['oscillators'][indicator] = {'value': value, 'signal': signal}
+    # Moving averages
+    moving_averages_data = {
+        "Exponential Moving Average 9": (data['EMA9'].iloc[-1], determine_signal_ma('EMA9', data['EMA9'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Exponential Moving Average 10": (data['EMA10'].iloc[-1], determine_signal_ma('EMA10', data['EMA10'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Simple Moving Average 10": (data['SMA10'].iloc[-1], determine_signal_ma('SMA10', data['SMA10'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Exponential Moving Average 20": (data['EMA20'].iloc[-1], determine_signal_ma('EMA20', data['EMA20'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Exponential Moving Average 26": (data['EMA26'].iloc[-1], determine_signal_ma('EMA26', data['EMA26'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Simple Moving Average 20": (data['SMA20'].iloc[-1], determine_signal_ma('SMA20', data['SMA20'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Exponential Moving Average 30": (data['EMA30'].iloc[-1], determine_signal_ma('EMA30', data['EMA30'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Simple Moving Average 30": (data['SMA30'].iloc[-1], determine_signal_ma('SMA30', data['SMA30'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Exponential Moving Average 50": (data['EMA50'].iloc[-1], determine_signal_ma('EMA50', data['EMA50'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Simple Moving Average 50": (data['SMA50'].iloc[-1], determine_signal_ma('SMA50', data['SMA50'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Exponential Moving Average 100": (data['EMA100'].iloc[-1], determine_signal_ma('EMA100', data['EMA100'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Simple Moving Average 100": (data['SMA100'].iloc[-1], determine_signal_ma('SMA100', data['SMA100'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Exponential Moving Average 200": (data['EMA200'].iloc[-1], determine_signal_ma('EMA200', data['EMA200'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Simple Moving Average 200": (data['SMA200'].iloc[-1], determine_signal_ma('SMA200', data['SMA200'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Ichimoku Cloud": (data['Ichimoku'].iloc[-1], determine_signal_ma('Ichimoku Cloud', data['Ichimoku'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Volume Weighted Moving Average 20": (data['VWMA20'].iloc[-1], determine_signal_ma('Volume Weighted Moving Average 20', data['VWMA20'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+        "Hull Moving Average 9": (data['HullMA9'].iloc[-1], determine_signal_ma('Hull Moving Average 9', data['HullMA9'].iloc[-1], data['Close'].iloc[-1], sell_counter, buy_counter, neutral_counter)),
+    }
+    for indicator, (value, signal) in moving_averages_data.items():
+        output['moving_averages'][indicator] = {'value': value, 'signal': signal}
+    # Pivots
+    if isinstance(pivot_data, pd.DataFrame):
+        pivot_levels = ['S3', 'S2', 'S1', 'Pivot (P)', 'R1', 'R2', 'R3']
+        pivot_types = ['Classic', 'Fibonacci', 'Camarilla', 'Woodie', 'DM']
+        for level in pivot_levels:
+            output['pivots'][level] = {}
+            for ptype in pivot_types:
+                col = f'{ptype}_{level}'
+                if col in pivot_data:
+                    output['pivots'][level][ptype] = pivot_data[col].iloc[-1]
+    # Summary
+    output['summary'] = {
+        'buy_count': buy_counter,
+        'neutral_count': neutral_counter,
+        'sell_count': sell_counter
+    }
+    with open(json_file_path, 'w') as f:
+        json.dump(output, f, indent=2, default=str)
 
 def calculate_ao(high, low, fast_period=5, slow_period=34):
     median_price = (high + low) / 2
@@ -409,7 +481,8 @@ def main():
 
         # Generate Markdown file
         generate_md_file(data, pivot_data, timeframe, symbol)
-
+        # Generate JSON file
+        generate_json_file(data, pivot_data, timeframe, symbol)
         # Plot charts
         # plot_charts(data)
 
